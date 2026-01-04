@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ALTTP_Helper_CSharp.Classes
+namespace ALTTP_Helper_CSharp
 {
     internal class Shops
     {

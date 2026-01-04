@@ -30,9 +30,16 @@
         {
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             resetTrackerToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem1 = new ToolStripMenuItem();
+            emulatorToolStripMenuItem = new ToolStripMenuItem();
+            snes9xToolStripMenuItem = new ToolStripMenuItem();
+            retroArchToolStripMenuItem = new ToolStripMenuItem();
+            openEmuToolStripMenuItem = new ToolStripMenuItem();
+            ZNESZToolStripMenuItem = new ToolStripMenuItem();
+            spoilerLogToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             optionToolStripMenuItem = new ToolStripMenuItem();
             liveUpdatingToolStripMenuItem = new ToolStripMenuItem();
@@ -45,6 +52,7 @@
             toolStripSeparator3 = new ToolStripSeparator();
             gitHubPageToolStripMenuItem = new ToolStripMenuItem();
             tabGroupBox = new GroupBox();
+            label1 = new Label();
             mapTrackRadio = new RadioButton();
             manualTrackRadio = new RadioButton();
             liveTrackRadio = new RadioButton();
@@ -52,7 +60,6 @@
             worldGroupLabel = new Label();
             darkWorldMapRadio = new RadioButton();
             lightWorldMapRadio = new RadioButton();
-            label1 = new Label();
             groupBox1 = new GroupBox();
             label2 = new Label();
             radioButton1 = new RadioButton();
@@ -74,34 +81,81 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolStripSeparator2, resetTrackerToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator2, resetTrackerToolStripMenuItem, openToolStripMenuItem1, toolStripSeparator4, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "&File";
             // 
-            // openToolStripMenuItem
-            // 
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(183, 22);
-            openToolStripMenuItem.Text = "&Open Spoiler Log . . .";
-            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
-            // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(180, 6);
+            toolStripSeparator2.Size = new Size(177, 6);
             // 
             // resetTrackerToolStripMenuItem
             // 
             resetTrackerToolStripMenuItem.Name = "resetTrackerToolStripMenuItem";
-            resetTrackerToolStripMenuItem.Size = new Size(183, 22);
+            resetTrackerToolStripMenuItem.Size = new Size(180, 22);
             resetTrackerToolStripMenuItem.Text = "&Reset Tracker";
             resetTrackerToolStripMenuItem.Click += resetTrackerToolStripMenuItem_Click;
+            // 
+            // openToolStripMenuItem1
+            // 
+            openToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { emulatorToolStripMenuItem, spoilerLogToolStripMenuItem });
+            openToolStripMenuItem1.Name = "openToolStripMenuItem1";
+            openToolStripMenuItem1.Size = new Size(180, 22);
+            openToolStripMenuItem1.Text = "&Open . . .";
+            // 
+            // emulatorToolStripMenuItem
+            // 
+            emulatorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { snes9xToolStripMenuItem, retroArchToolStripMenuItem, openEmuToolStripMenuItem, ZNESZToolStripMenuItem });
+            emulatorToolStripMenuItem.Name = "emulatorToolStripMenuItem";
+            emulatorToolStripMenuItem.Size = new Size(180, 22);
+            emulatorToolStripMenuItem.Text = "Emulator";
+            // 
+            // snes9xToolStripMenuItem
+            // 
+            snes9xToolStripMenuItem.Name = "snes9xToolStripMenuItem";
+            snes9xToolStripMenuItem.Size = new Size(180, 22);
+            snes9xToolStripMenuItem.Text = "Snes9x";
+            snes9xToolStripMenuItem.Click += snes9xToolStripMenuItem_Click;
+            // 
+            // retroArchToolStripMenuItem
+            // 
+            retroArchToolStripMenuItem.Name = "retroArchToolStripMenuItem";
+            retroArchToolStripMenuItem.Size = new Size(180, 22);
+            retroArchToolStripMenuItem.Text = "RetroArch";
+            retroArchToolStripMenuItem.Click += retroArchToolStripMenuItem_Click;
+            // 
+            // openEmuToolStripMenuItem
+            // 
+            openEmuToolStripMenuItem.Name = "openEmuToolStripMenuItem";
+            openEmuToolStripMenuItem.Size = new Size(180, 22);
+            openEmuToolStripMenuItem.Text = "OpenEmu";
+            openEmuToolStripMenuItem.Click += openEmuToolStripMenuItem_Click;
+            // 
+            // ZNESZToolStripMenuItem
+            // 
+            ZNESZToolStripMenuItem.Name = "ZNESZToolStripMenuItem";
+            ZNESZToolStripMenuItem.Size = new Size(180, 22);
+            ZNESZToolStripMenuItem.Text = "ZNESZ (Legacy)";
+            ZNESZToolStripMenuItem.Click += ZNESZToolStripMenuItem_Click;
+            // 
+            // spoilerLogToolStripMenuItem
+            // 
+            spoilerLogToolStripMenuItem.Name = "spoilerLogToolStripMenuItem";
+            spoilerLogToolStripMenuItem.Size = new Size(180, 22);
+            spoilerLogToolStripMenuItem.Text = "&Spoiler Log";
+            spoilerLogToolStripMenuItem.Click += spoilerLogToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(183, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -186,6 +240,16 @@
             tabGroupBox.Size = new Size(264, 68);
             tabGroupBox.TabIndex = 1;
             tabGroupBox.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(75, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Tracking Method";
+            label1.Visible = false;
             // 
             // mapTrackRadio
             // 
@@ -272,16 +336,6 @@
             lightWorldMapRadio.TextAlign = ContentAlignment.MiddleCenter;
             lightWorldMapRadio.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(75, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Tracking Method";
-            label1.Visible = false;
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(label2);
@@ -363,7 +417,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem themeToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem1;
-        private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem resetTrackerToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
@@ -384,5 +437,13 @@
         private Label label2;
         private RadioButton radioButton1;
         private RadioButton searchShop;
+        private ToolStripMenuItem openToolStripMenuItem1;
+        private ToolStripMenuItem emulatorToolStripMenuItem;
+        private ToolStripMenuItem snes9xToolStripMenuItem;
+        private ToolStripMenuItem retroArchToolStripMenuItem;
+        private ToolStripMenuItem openEmuToolStripMenuItem;
+        private ToolStripMenuItem ZNESZToolStripMenuItem;
+        private ToolStripMenuItem spoilerLogToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator4;
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ALTTP_Helper_CSharp.Classes
+namespace ALTTP_Helper_CSharp
 {
     /* This class is created for each of the "entrances" or "destinations 
      * for the player to find. each of the PathNodes are the nodes in which 
@@ -19,7 +21,7 @@ namespace ALTTP_Helper_CSharp.Classes
     internal class Pathfinder
     {
         //List of path nodes to create a pathway
-        private List<PathNode> path = new();
+        private List<PathNode> path = new()!;
 
         //Pass by value of where player wants to go
         private string destination;
@@ -37,15 +39,15 @@ namespace ALTTP_Helper_CSharp.Classes
             //When parsing the text file, create as many path nodes for each entrance
             public PathNode(string begin, string dest)
             {
-                this.start = begin!;
-                this.end = dest!;
+                start = begin!;
+                end = dest!;
             }
         }
 
         //Default constructor -- do not use
         public Pathfinder() 
         {
-            this.destination = string.Empty;
+            destination = string.Empty;
         }
 
         //Constructor with values
@@ -54,7 +56,10 @@ namespace ALTTP_Helper_CSharp.Classes
          * least one must exist*/
         public Pathfinder(string dest)
         {
-            this.destination = dest;
+            /* Needs updating to handle the pathfinding
+             * Parse the name from the JSON object first to create the path to search for later.
+             * The processing can come later */
+            destination = dest;
         }
 
         //Begin to add objects to a list
@@ -64,11 +69,30 @@ namespace ALTTP_Helper_CSharp.Classes
             path.Add(newPath);
         }
 
+        public void ProcessJSONPaths(JsonArray path)
+        {
+            //TODO: Loop through all of this path data
+            // Loop through the RAW JSON data passed in
+            foreach (var node in path)
+            {
+                // This works because 'node' is a JsonNode, which CAN be a JsonArray
+                if (node is JsonArray step)
+                {
+                    string from = step[0]?.ToString() ?? "";
+                    string to = step[1]?.ToString() ?? "End";
+
+                    // Now create your PathNode and add it to your class list
+                    this.path.Add(new PathNode(from, to));
+                }
+            }
+        }
+
+
         /*Return entire list of path nodes. Call this function 
          * when the player selects a location from a list. 
          * Returns EVERY node in that path, to get displayed
          * from the form itself. Create a custom form for 
          * displaying the results */
-        public List<PathNode> GetPath() { return path; }
+        public List<PathNode> GetPath(string destination) { return path; }
     }
 }
